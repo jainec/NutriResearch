@@ -1,0 +1,162 @@
+body{
+	background-color: #F7F7F7;
+}
+
+#nav{
+	background-color: #97C447;
+}
+
+#inputBusca{
+	width: 500px;
+	height: 40px;
+}
+
+#divBotoes{
+	text-align: center;
+	float: letf;
+	margin-top: 30px;
+	margin-bottom: 104px;
+}
+
+#divTitulo{
+	margin-top: 25px;
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+button{
+	background-color: #DEDEDE;
+	margin-left: 13px;
+}
+
+#liDicionario{
+	float: right;
+}
+
+#liUsuario {
+	color: rgba(0,0,0,.5);"	
+}
+
+#liUsuario:hover {
+	color: rgba(0,0,0,.7);
+}
+
+
+h1{
+	font-family: Arial,Tahoma,Verdana,Helvetica;
+}
+
+#divImg{
+	margin-top: 70px;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+}
+
+#footer {
+	background-color: #97C447;
+  	position: absolute;
+  	bottom: 0;
+  	width: 100%;
+  	height: 60px;
+}
+
+
+#imgLogo {
+	width: 150px;
+}
+
+#divBusca{
+	position: absolute;
+}
+
+#div-search-icon{
+    background:none;
+    width: 41px;
+    height: 38px;
+    position: relative;
+    margin-left: 460px;
+    margin-top: 1px;
+	text-align: center;
+}
+
+#div-search-icon:hover{
+    background: #97C447;
+    border: 1px solid #97C447;
+    border-radius: 0px 3px 3px 0px;
+    text-align: center;
+}
+
+#search-icon {
+	margin-top: 7px;	
+}
+
+body {
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+}
+
+* { box-sizing: border-box; }
+body {
+  font: 16px Arial; 
+}
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: #e9e9e9 !important; 
+  color: #000000; 
+}
+
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer-class, .push {
+    height: 60px; /* .push must be the same height as .footer */
+}
+

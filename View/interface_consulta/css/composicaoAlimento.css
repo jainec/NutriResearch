@@ -1,0 +1,163 @@
+
+body{
+    background-color: ;
+}
+
+#nav{
+    background-color: #97C447;
+}
+
+#inputBusca{
+    width: 500px;
+}
+
+#divBusca{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+#divBotoes{
+    text-align: center;
+    float: letf;
+    margin-top: 30px;
+    margin-bottom: 104px;
+}
+
+#divTitulo{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+button{
+    background-color: #DEDEDE;
+    margin-left: 13px;
+
+}
+
+
+h1{
+    font-family: Rajdhani,sans-serif;
+
+}
+
+#divImg{
+    margin-top: 120px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+#footer {
+    background-color: #97C447;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+#footer2 {
+    margin-top: 30px;
+    background-color: #97C447;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+#searchIcon {
+    position: relative;
+    left: 18%; 
+    bottom: 27px;
+}
+
+#pCaminho {
+    margin-left: 17px;
+    margin-top: 10px;
+    font-size: 11pt;
+}
+
+#pCaminhoAtual {
+    color: #97C447;
+    font-weight: bold;
+}
+
+#spanReceita {
+    margin-left: 380px;
+    margin-bottom: 10px;
+    
+}
+
+#divDecisoes {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+#btnDecisoes {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#h1MeusIndividuos {
+    margin-bottom: 20px;
+}
+
+.btnMeusIndividuos {
+    background-color: #97C447;
+}
+
+.divMeusIndividuos {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#divBoxIndividuos {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#divUsuarioEBusca {
+    margin-bottom: 15px;
+}
+
+#divNovoIndividuo {
+    margin-top: 15px;
+}
+
+body{
+    background-color: #F7F7F7;
+}
+
+
+.a-caminho {
+    color: inherit;
+    text-decoration: none;
+}
+
+.a-caminho:hover {
+    text-decoration: underline;
+    color: inherit;
+}
+
+#liDicionario{
+    float: right;
+}
+
+#liUsuario {
+    color: rgba(0,0,0,.5);" 
+}
+
+#liUsuario:hover {
+    color: rgba(0,0,0,.7);
+}
+
+#nav {
+    text-align: center;
+}
+
+#div-btn-voltar {
+    margin-top: 20px;
+}
+
+#div-fonte {
+    margin-top: 20px;
+}

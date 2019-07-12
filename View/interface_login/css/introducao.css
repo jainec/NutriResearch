@@ -1,0 +1,54 @@
+body{
+    background-color: #F7F7F7;
+}
+
+.jumbotron {
+    background-color:transparent !important; 
+}
+
+#liDicionario{
+    float: right;
+}
+
+#liUsuario {
+    color: rgba(0,0,0,.5);
+}
+
+#liUsuario:hover {
+    color: rgba(0,0,0,.7);
+}
+
+#nav {
+    background-color: #97C447;
+    text-align: center;
+}
+
+h1{
+    font-family: Rajdhani,sans-serif;
+}
+
+#footer {
+    background-color: #97C447;
+    position: absolute;
+    bottom: 5;
+    width: 100%;
+    height: 60px;
+}
+
+#footer2 {
+    margin-top: 30px;
+    background-color: #97C447;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+.a-introducao {
+    color: inherit;
+    text-decoration: none;
+}
+
+.a-introducao:hover {
+    text-decoration: underline;
+    color: inherit;
+}

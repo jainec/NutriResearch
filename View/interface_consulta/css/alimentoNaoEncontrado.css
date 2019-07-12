@@ -1,0 +1,72 @@
+body{
+    background-color: #F7F7F7;
+}
+
+#nav{
+    background-color: #97C447;
+}
+
+#divTitulo{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+
+h1{
+    font-family: Rajdhani,sans-serif;
+
+}
+
+#footer {
+    background-color: #97C447;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+#footer2 {
+    margin-top: 30px;
+    background-color: #97C447;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+#pCaminho {
+    font-size: 11pt;
+    margin-left: 17px;
+    margin-top: 10px;
+}
+
+#pCaminhoAtual {
+    font-size: 11pt;
+    color: #97C447;
+    font-weight: bold;
+
+}
+.a-caminho {
+    color: inherit;
+    text-decoration: none;
+}
+
+.a-caminho:hover {
+    text-decoration: underline;
+    color: inherit;
+}
+
+#liDicionario{
+    float: right;
+}
+
+#liUsuario {
+    color: rgba(0,0,0,.5);" 
+}
+
+#liUsuario:hover {
+    color: rgba(0,0,0,.7);
+}
+
+#nav {
+    text-align: center;
+}

@@ -1,0 +1,36 @@
+body{
+    background-color: #F7F7F7;
+}
+
+#nav{
+    background-color: #97C447;
+}
+
+button{
+    background-color: #DEDEDE;
+    margin-left: 13px;
+}
+
+#footer {
+    background-color: #97C447;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+#footer2 {
+    margin-top: 30px;
+    background-color: #97C447;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+#btn-login {
+    background-color: #97C447;
+}
+
+#btn-ok {
+	background-color: #97C447;
+}
