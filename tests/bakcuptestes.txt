@@ -1,0 +1,194 @@
+<?php
+    use PHPUnit\Framework\TestCase;
+    include '..\Controller\calculoAlimentoReceita.php';
+    include '..\Model\Alimento.php';
+
+    class calculoAlimentoReceitaTest extends TestCase {
+        /** @test */
+        public function gramasIgual100ParaReceitaIngredientesTest() {
+            $nomeReceita = 'Brigadeiro1';
+            $gramasReceita = 100;
+            $ingrediente1 = $this->getMock('Alimento');
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [100, 100];
+            $modoDePreparo = "Receita para 100g de Brigadeiro: Utilize 100g de Leite condensado e 100g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro1 Quantidade: 100 Energia: 200 Proteina: 200 Carboidrato: 200 Lipideo: 200 Calcio: 200 Ferro: 200 Vit. C: 200 Vit. A: 200";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasIgual100ParaReceitaDiferendeDe100ParaIngredientesTest() {
+            $nomeReceita = 'Brigadeiro2';
+            $gramasReceita = 100;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [200, 50];
+            $modoDePreparo = "Receita para 100g de Brigadeiro: Utilize 200g de Leite condensado e 50g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro2 Quantidade: 100 Energia: 250 Proteina: 250 Carboidrato: 250 Lipideo: 250 Calcio: 250 Ferro: 250 Vit. C: 250 Vit. A: 250";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasDiferenteDe100ParaReceitaIgual100ParaIngredientesTest() {
+            $nomeReceita = 'Brigadeiro3';
+            $gramasReceita = 50;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [100, 100];
+            $modoDePreparo = "Receita para 50g de Brigadeiro: Utilize 100g de Leite condensado e 100g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro3 Quantidade: 100 Energia: 400 Proteina: 400 Carboidrato: 400 Lipideo: 400 Calcio: 400 Ferro: 400 Vit. C: 400 Vit. A: 400";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasMaiorQue100ParaReceitaVariandoParaIngredientesTest() {
+            $nomeReceita = 'Brigadeiro4';
+            $gramasReceita = 200;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [50, 150];
+            $modoDePreparo = "Receita para 200g de Brigadeiro: Utilize 50g de Leite condensado e 150g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro4 Quantidade: 100 Energia: 100 Proteina: 100 Carboidrato: 100 Lipideo: 100 Calcio: 100 Ferro: 100 Vit. C: 100 Vit. A: 100";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasMenorQue100ParaReceitaVariandoParaIngredientesTest() {
+            $nomeReceita = 'Brigadeiro5';
+            $gramasReceita = 50;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [200, 50];
+            $modoDePreparo = "Receita para 50g de Brigadeiro: Utilize 200g de Leite condensado e 50g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro5 Quantidade: 100 Energia: 500 Proteina: 500 Carboidrato: 500 Lipideo: 500 Calcio: 500 Ferro: 500 Vit. C: 500 Vit. A: 500";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasComValoresReaisTest() {
+            $nomeReceita = 'Brigadeiro6';
+            $gramasReceita = 120.5;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [55.5, 250.8];
+            $modoDePreparo = "Receita para 120,5g de Brigadeiro: Utilize 55,5g de Leite condensado e 250,8g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro6 Quantidade: 100 Energia: 50 Proteina: 50 Carboidrato: 50 Lipideo: 50 Calcio: 50 Ferro: 50 Vit. C: 50 Vit. A: 50";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasMenorQue0ParaReceita() {
+            $nomeReceita = 'Brigadeiro7';
+            $gramasReceita = -1;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [50, 50];
+            $modoDePreparo = "Receita para -1g de Brigadeiro: Utilize 50g de Leite condensado e 50g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro4 Quantidade: 100 Energia: 50 Proteina: 50 Carboidrato: 50 Lipideo: 50 Calcio: 50 Ferro: 50 Vit. C: 50 Vit. A: 50";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasMenorQue0ParaIngredientes() {
+            $nomeReceita = 'Brigadeiro8';
+            $gramasReceita = 100;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [-50, -100];
+            $modoDePreparo = "Receita para 100g de Brigadeiro: Utilize -50g de Leite condensado e -100g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro4 Quantidade: 100 Energia: 50 Proteina: 50 Carboidrato: 50 Lipideo: 50 Calcio: 50 Ferro: 50 Vit. C: 50 Vit. A: 50";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+       //*** VALORES LIMITES */
+
+       /** @test */
+        public function gramasIgual0ParaReceitaTest() {
+            $nomeReceita = 'Brigadeiro9';
+            $gramasReceita = 0;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [100, 100];
+            $modoDePreparo = "Receita para 0,1g de Brigadeiro: Utilize 100g de Leite condensado e 100g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro4 Quantidade: 100 Energia: 2000 Proteina: 2000 Carboidrato: 2000 Lipideo: 2000 Calcio: 2000 Ferro: 2000 Vit. C: 2000 Vit. A: 2000";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasIgual0ParaIngredientesTest() {
+            $nomeReceita = 'Brigadeiro10';
+            $gramasReceita = 100;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [0, 0];
+            $modoDePreparo = "Receita para 0,1g de Brigadeiro: Utilize 100g de Leite condensado e 100g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro4 Quantidade: 100 Energia: 2000 Proteina: 2000 Carboidrato: 2000 Lipideo: 2000 Calcio: 2000 Ferro: 2000 Vit. C: 2000 Vit. A: 2000";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasIgual01ParaReceitaTest() {
+            $nomeReceita = 'Brigadeiro11';
+            $gramasReceita = 0.1;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [100, 100];
+            $modoDePreparo = "Receita para 0,1g de Brigadeiro: Utilize 100g de Leite condensado e 100g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro11 Quantidade: 100 Energia: 2000 Proteina: 2000 Carboidrato: 2000 Lipideo: 2000 Calcio: 2000 Ferro: 2000 Vit. C: 2000 Vit. A: 2000";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasIgual01ParaIngredientesTest() {
+            $nomeReceita = 'Brigadeiro12';
+            $gramasReceita = 100;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [0.1, 0.1];
+            $modoDePreparo = "Receita para 100g de Brigadeiro: Utilize 0,1g de Leite condensado e 0,1g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro4 Quantidade: 100 Energia: 2000 Proteina: 2000 Carboidrato: 2000 Lipideo: 2000 Calcio: 2000 Ferro: 2000 Vit. C: 2000 Vit. A: 2000";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasIgual02ParaReceitaTest() {
+            $nomeReceita = 'Brigadeiro13';
+            $gramasReceita = 0.2;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [100, 100];
+            $modoDePreparo = "Receita para 0,2g de Brigadeiro: Utilize 100g de Leite condensado e 100g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro12 Quantidade: 100 Energia: 2000 Proteina: 2000 Carboidrato: 2000 Lipideo: 2000 Calcio: 2000 Ferro: 2000 Vit. C: 2000 Vit. A: 2000";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+        /** @test */
+        public function gramasIgual02ParaIngredientesTest() {
+            $nomeReceita = 'Brigadeiro13';
+            $gramasReceita = 100;
+            $arrayIngredientes = [89,90]; //Leite condensado e chocolate em pó
+            $arrayMedidas = [1, 1];       //Gramas e Gramas
+            $arrayQntds = [0.2, 0.2];
+            $modoDePreparo = "Receita para 0,1g de Brigadeiro: Utilize 100g de Leite condensado e 100g de Chocolate em pó.";
+            $id_fonte = 3;
+            $stringEsperada = "Nome do alimento do tipo receita: Brigadeiro13 Quantidade: 100 Energia: 2000 Proteina: 2000 Carboidrato: 2000 Lipideo: 2000 Calcio: 2000 Ferro: 2000 Vit. C: 2000 Vit. A: 2000";
+            $this->assertEquals($stringEsperada, calcularProporcaoReceita($nomeReceita, $gramasReceita, $arrayIngredientes, $arrayMedidas, $arrayQntds, $modoDePreparo, $id_fonte));
+        }
+
+    }   
+
+?>

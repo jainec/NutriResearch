@@ -1,0 +1,96 @@
+body{
+	background-color: #F7F7F7;
+}
+
+#nav{
+	background-color: #97C447;
+}
+
+#div-titulo{
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+button{
+	background-color: #DEDEDE;
+	margin-left: 13px;
+}
+
+h1{
+	margin-top: 5px;
+	font-family: Rajdhani,sans-serif;
+}
+
+#footer {
+	background-color: #97C447;
+  	bottom: 0;
+  	width: 100%;
+  	height: 60px;
+}
+
+#div-form {
+	width: 400px;
+	margin: 0 auto;	
+}
+
+#div-email-e-confirmacao{
+	width: 400px;
+	height: 60px;
+}
+
+#div-email {
+	float: left;
+	width: 400px;	
+}
+
+#div-confirmacao-email {
+	float: left;
+	width: 400px;
+}
+
+#div-senha {
+	float: left;
+	width: 175px;
+	margin-right: 50px;
+}
+
+#div-confirmacao-senha {
+	float: left;
+	width: 175px;
+}
+
+#div-nome {
+	width: 400px;
+	float: left;
+	margin-right: 30px;
+}
+
+#div-botoes {
+	width: 400px;
+	height: 100px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	margin-bottom: 10px;
+}
+
+#btn-confirmar {
+	float: left;
+	background-color: #97C447;
+}
+
+#btn-ok {
+	background-color: #97C447;
+}
+
+#btn-voltar {
+	float: left;
+}
+
+#div-obrigatorio {
+	margin-bottom: 10px;
+}
+
+small {
+	float: right;
+}
